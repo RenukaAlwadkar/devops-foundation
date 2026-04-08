@@ -43,3 +43,17 @@ It helps to run the same application in any system.
 
 Cloud (AWS):
 Instead of physical servers, we use online servers.
+
+## Day 4: Infrastructure Automation
+
+### Difference between .sh and .yaml
+
+- .sh file:
+  It executes commands step by step and performs actions.
+
+- .yaml file:
+  It defines configuration and describes how the system should look.
+
+### Reflection
+
+Using code is better than manual setup because it saves time, reduces errors, and ensures consistency across multiple systems.
