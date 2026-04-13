@@ -1,0 +1,11 @@
+exit
+db.users.find()
+use testdb
+db.users.find()use testdb
+exit
+docker-compose down
+db.users.find()
+db.users.insertOne({name: "Renuka", role: "student"})
+use testdb
+db.users.find()
+db.users.insertOne({name: "Renuka", role: "student"})use testdb
