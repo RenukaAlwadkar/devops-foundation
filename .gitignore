@@ -1,0 +1,11 @@
+# Ignore MongoDB data
+day8/mongodata/
+
+# Ignore node_modules 
+node_modules/
+
+# Ignore Python cache
+__pycache__/
+
+# Ignore env files
+.env

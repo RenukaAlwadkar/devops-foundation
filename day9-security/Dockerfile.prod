@@ -1,0 +1,28 @@
+# STAGE 1: Builder
+FROM python:3.9-slim AS builder
+
+WORKDIR /build
+
+COPY requirements.txt .
+
+RUN pip install --user -r requirements.txt
+
+
+# STAGE 2: Final Image
+FROM python:3.9-slim
+
+RUN useradd -m myuser
+
+WORKDIR /app
+
+COPY --from=builder /root/.local /home/myuser/.local
+
+COPY . .
+
+ENV PATH=/home/myuser/.local/bin:$PATH
+
+RUN chown -R myuser:myuser /app
+
+USER myuser
+
+CMD ["python", "app.py"]
