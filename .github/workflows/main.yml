@@ -1,14 +1,28 @@
-name: Day4_Automation_Check
+name: Day 10 CI Pipeline
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  test_script:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Run our Setup Script
-        run: bash scripts/setup_server.sh
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install -r day9-security/requirements.txt
+
+    - name: Run Docker Build (Test)
+      run: |
+        docker build -t meetmux-test-image ./day9-security
