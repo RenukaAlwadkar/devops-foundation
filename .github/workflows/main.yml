@@ -23,6 +23,11 @@ jobs:
       run: |
         pip install -r day9-security/requirements.txt
 
-    - name: Run Docker Build (Test)
-      run: |
-        docker build -t meetmux-test-image ./day9-security
+   - name: Build Docker Image
+  run: |
+    docker build -t meetmux-test-image .
+
+- name: Run Container (Test App)
+  run: |
+    docker run -d -p 5000:5000 meetmux-test-image
+    sleep 5
