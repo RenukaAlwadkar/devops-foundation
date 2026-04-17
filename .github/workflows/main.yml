@@ -25,7 +25,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: .                # IMPORTANT
-          file: ./Dockerfile       # IMPORTANT (Dockerfile must exist)
+          context: ./day9-security
+          file: ./day9-security/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/meetmux-app:v${{ github.run_number }}
