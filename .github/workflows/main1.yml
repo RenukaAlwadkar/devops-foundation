@@ -16,8 +16,10 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
-run: echo "All tests passed"
+        run: npm install
+
       - name: Run Unit Tests
-run: echo "All tests passed"
+        run: npm test
+
       - name: Build Status
         run: echo "Docker Build Successful"
